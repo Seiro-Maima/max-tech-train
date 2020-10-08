@@ -1,8 +1,8 @@
 
 public interface DepartmentConstants {
 
-	final int ADMIN = 1;
-	final int EDITORIAL = 2;
-	final int MARKETING = 3;
+	int ADMIN = 1;
+	int EDITORIAL = 2;
+	int MARKETING = 3;
 	
 }
