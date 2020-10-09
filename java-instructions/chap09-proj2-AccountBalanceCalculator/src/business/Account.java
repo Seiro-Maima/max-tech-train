@@ -4,7 +4,6 @@ public class Account implements Balanceable, Withdrawalable, Depositable {
 
 	private double balance;
 	
-	
 	public Account() {
 		super();
 	}
@@ -33,5 +32,6 @@ public class Account implements Balanceable, Withdrawalable, Depositable {
 	public void setBalance(double amount) {
 		balance = amount;
 	}
+
 	
 }
