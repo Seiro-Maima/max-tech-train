@@ -1,6 +1,7 @@
 package db;
 
 import java.io.*;
+
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,21 @@ public class ProductTextFile implements DAO<Product> {
 		if(Files.exists(productsPath)){
 			try(BufferedReader in = new BufferedReader(
 								    new FileReader(productsFile))){
+				
+				// read product from file into our list
+				String line = in.readLine();
+				
+				while(line != null) {
+				
+					String [] fields = line.split(FIELD_SEP);
+					String code = fields[0];
+					String description = fields[1];
+					String price = fields[2];
+				    double priceDbl = Double.parseDouble(price);
+				    Product p = new Product(code, description, priceDbl);
+				    products.add(p);
+				    line = in.readLine();
+				}
 			}catch(IOException ioe) {
 				System.out.println(ioe);
 				return null;
@@ -52,21 +68,48 @@ public class ProductTextFile implements DAO<Product> {
 	}
 
 	@Override
-	public boolean add(Product t) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean add(Product p) {
+		products.add(p);
+		return saveAll();
 	}
 
 	@Override
-	public boolean update(Product t) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Product p) {
+		// get old product and remove it
+		Product oldProduct = this.get(p.getCode());
+		int i = products.indexOf(oldProduct);
+		products.remove(i);
+		products.add(i,p);
+		return saveAll();
 	}
 
 	@Override
-	public boolean delete(Product t) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Product p) {
+		products.remove(p);
+		return saveAll();
+	}
+	
+	private boolean saveAll() {
+		// after every maintenance function (add, update, delete) function
+		// rewrite the text file
+		try(PrintWriter out = new PrintWriter(
+							  new BufferedWriter(
+							  new FileWriter(productsFile)))) {
+					
+			// write all products in the list to the file	
+			for (Product p: products) {
+				out.print(p.getCode() + FIELD_SEP);
+				out.print(p.getDescription() + FIELD_SEP);
+				out.println(p.getPrice());
+
+			}
+			return true;
+
+		}catch(IOException ioe) {
+			System.out.println(ioe);
+			return false;
+		}
+		
 	}
 
 }
