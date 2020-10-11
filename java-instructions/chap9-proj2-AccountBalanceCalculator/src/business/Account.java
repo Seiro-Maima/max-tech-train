@@ -1,28 +1,30 @@
 package business;
 
-public class Account implements Balanceable, Withdrawalable, Depositable {
+public class Account implements Withdrawable, Balanceable, Depositable {
 
-	private double balance;
-	
+	// instance variable
+	protected double balance;
+
+	// constructor
 	public Account() {
 		super();
 	}
-
+	
 	public Account(double balance) {
 		super();
 		this.balance = balance;
 	}
 
 	@Override
-	public void deposit(double amount) {
+	public void depoosit(double amount) {
 		balance += amount;
 	}
-
+	
 	@Override
 	public void withdraw(double amount) {
 		balance -= amount;
 	}
-
+	
 	@Override
 	public double getBalance() {
 		return balance;
@@ -33,5 +35,4 @@ public class Account implements Balanceable, Withdrawalable, Depositable {
 		balance = amount;
 	}
 
-	
 }

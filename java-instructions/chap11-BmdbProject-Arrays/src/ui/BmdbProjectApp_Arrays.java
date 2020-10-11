@@ -38,7 +38,7 @@ public class BmdbProjectApp_Arrays {
 	
 			// prompt command input from user
 			command = Console.getInt("\nCommand: ");
-			System.out.println();
+			System.out.println();			
 			
 			switch(command) {
 	
@@ -61,6 +61,7 @@ public class BmdbProjectApp_Arrays {
 						if(actors[i] == null) {
 							// add recently created actor into the actor list
 							actors[i] = actor;
+							break;	// make sure to break here, or it will continue adding to array until size length
 						}
 					}
 					
@@ -76,7 +77,6 @@ public class BmdbProjectApp_Arrays {
 					for(Actor a: actors) {
 						if(a!=null) {
 							System.out.println(a.actorSummary());
-							break;
 						}
 					}
 					System.out.println();
