@@ -116,4 +116,15 @@ public class Console {
         }
         return d;
     }
+    
+    public static boolean getBoolean(String prompt) {
+    	String str = getChoiceString(prompt, "true", "false");
+    	    		
+		if(str.equalsIgnoreCase("true")) {
+			return true;
+		}else {
+			return false;
+		}
+    }
+    
 }
