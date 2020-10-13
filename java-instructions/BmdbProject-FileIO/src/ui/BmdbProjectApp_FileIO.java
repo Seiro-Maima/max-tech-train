@@ -6,23 +6,20 @@
 package ui;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import business.Actor;
 import business.Movie;
 import db.ActorTextFile;
 import db.DAO;
+import db.MovieTextFile;
 import ui.console.Console;
 
 public class BmdbProjectApp_FileIO {
-	
-	// CHANGE THIS LATER
-	private static List<Movie> movies = new ArrayList<>();
-	
-	// create a new instance of ActorTextFile
+		
+	// create a new instance of ActorTextFile and MovieTextFile
 	private static DAO<Actor> actorDAO = new ActorTextFile();
-	
+    private static DAO<Movie> movieDAO = new MovieTextFile();
+    
 	public static void main(String[] args) {
 
 		int command = 0;
@@ -41,9 +38,10 @@ public class BmdbProjectApp_FileIO {
 			System.out.println("5 - List Movies");
 			System.out.println("6 - Find Movie");
 			System.out.println("9 - Exit");
+            System.out.println();
 	
 			// prompt command input from user
-			command = Console.getInt("\nCommand: ");
+			command = Console.getInt("Command: ");
 			System.out.println();
 			
 			switch(command) {
@@ -56,7 +54,8 @@ public class BmdbProjectApp_FileIO {
 					String firstName = Console.getString("First Name? ");
 					String lastName = Console.getString("Last Name? ");
 					String gender = Console.getString("Gender (M/F)? ");
-					LocalDate birthDate = LocalDate.parse(Console.getString("BirthDate (YYYY-MM-DD)? "));
+					String bdStr = Console.getString("BirthDate (YYYY-MM-DD)? ");
+					LocalDate birthDate = LocalDate.parse(bdStr);
 		
 					// create instance of Actor Class
 					Actor actor = new Actor(id, firstName, lastName, gender, birthDate);
@@ -66,6 +65,7 @@ public class BmdbProjectApp_FileIO {
 					
 					System.out.println("\nActor Summary:");
 					System.out.println(actor.actorSummary());
+                    System.out.println();
 
 					break;
 					
@@ -78,6 +78,7 @@ public class BmdbProjectApp_FileIO {
 							System.out.println(a.actorSummary());
 						}
 					}
+     
 					System.out.println();
 					
 					break;
@@ -94,7 +95,7 @@ public class BmdbProjectApp_FileIO {
 //							System.out.println(a.actorSummary());
 //						}
 //					}
-					
+					  
 					break;
 
 				case 4: 	// add a movie
@@ -108,7 +109,7 @@ public class BmdbProjectApp_FileIO {
 
 					// create an instance of movie Class
 					Movie movie = new Movie(movieID, title, year, rating, genre);
-					movies.add(movie);
+					//movies.add(movie);
 					System.out.println("Movie Added!");
 					System.out.println(movie.movieSummary());
 	
@@ -118,11 +119,11 @@ public class BmdbProjectApp_FileIO {
 					
 					System.out.println("List of all Movies:");
 					
-					for(Movie m : movies) {
-						if(m!=null) {
-							System.out.println(m.movieSummary());
-						}
-					}
+//					for(Movie m : movies) {
+//						if(m!=null) {
+//							System.out.println(m.movieSummary());
+//						}
+//					}
 													
 					break;
 					
@@ -130,12 +131,12 @@ public class BmdbProjectApp_FileIO {
 					
 					System.out.println("Find a moive by id: ");
 					id = Console.getInt("ID ");
-					for (Movie m: movies) {
-						if (m!=null && m.getId()==id) {
-							System.out.println("Movie found:!");
-							System.out.println(m.movieSummary());
-						}
-					}
+//					for (Movie m: movies) {
+//						if (m!=null && m.getId()==id) {
+//							System.out.println("Movie found:!");
+//							System.out.println(m.movieSummary());
+//						}
+//					}
 					System.out.println();
 					
 					break;
@@ -143,18 +144,15 @@ public class BmdbProjectApp_FileIO {
 				case 9:	// do nothing - break out from loop
 					
 					break;
-				
+	
 				default:
 					
 					System.out.print("Invalid Command! Try Again.\n");
 					break;
 			}
-
 		}
 		
 		// farewell Message
 		System.out.println("\nBye!");	
-		
 	}
-
 }

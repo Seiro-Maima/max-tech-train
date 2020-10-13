@@ -1,13 +1,11 @@
-package business;
 
 public class Movie {
-	
+
 	// instance variables
-	private int id;
-	private String title;
-	private String year;
-	private String rating;
-	private String genre;
+	String title;
+	String year;
+	String rating;
+	String genre;
 	
 	// default constructor
 	public Movie () {
@@ -15,27 +13,19 @@ public class Movie {
 	}
 	
 	// fully loaded constructor
-	public Movie(int id, String title, String year, String rating, String genre) {
-			super();
-			this.id = id;
-			this.title = title;
-			this.year = year;
-			this.rating = rating;
-			this.genre = genre;
-		}
+	public Movie(String title, String year, String rating, String genre) {
+		super();
+		this.title = title;
+		this.year = year;
+		this.rating = rating;
+		this.genre = genre;
+	}
 
 	// getters and setters
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	public String getTitle() {
 		return title;
 	}
+
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -70,12 +60,12 @@ public class Movie {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	
+
 	// display movie summary
 	public String movieSummary() {
 		
 		String str;
-		str = "ID: " + id + " " + title + " (" + rating + ") was released in " + year + ". Genre(s): " + genre;
+		str = title + " (" + rating + ") was released in " + year + ". Genre(s): " + genre;
 
 		return str;
 	}

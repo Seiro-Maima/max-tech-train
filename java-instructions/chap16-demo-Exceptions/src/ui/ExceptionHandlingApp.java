@@ -28,12 +28,7 @@ public class ExceptionHandlingApp {
 			// stack trace - trace back the chain of command in method called to find the problem ***
 		}
 		
-
-		
-		
 		sc.close();
-		
-		
 		
 		System.out.println("Bye");
 	}

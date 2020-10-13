@@ -9,45 +9,35 @@ import java.util.List;
 import business.Actor;
 
 public class ActorTextFile implements DAO<Actor> {
-
-	// ---------- instance variables ----------
 	private List<Actor> actors = null;
 	private Path actorsPath = null;
 	private File actorsFile = null;
-	// field separators will separate variables when adding them to a file
 	private final String FIELD_SEP = "\t";
-	
-	// ---------- constructors ----------
+
 	public ActorTextFile() {
 		actorsPath = Paths.get("actors.txt");
 		actorsFile = actorsPath.toFile();
 		actors = getAll();
 	}
 
-	// ---------- getters & setters  ----------
 	@Override
 	public Actor get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	// get all actors from text file if list is null
+	// get all actors from text file if our list is null
 	@Override
 	public List<Actor> getAll() {
-		if(actors != null) {
+		if (actors != null) {
 			return actors;
 		}
-		
 		actors = new ArrayList<>();
-		
-		if(Files.exists(actorsPath)){
-			try(BufferedReader in = new BufferedReader(
-								    new FileReader(actorsFile))){
-				
-				// read product from file into our list
+		if (Files.exists(actorsPath)) {
+			try (BufferedReader in = new BufferedReader(new FileReader(actorsFile))) {
+				// read actors from file into our list
 				String line = in.readLine();
-				
-				while(line != null) {
+				while (line != null) {
 					String[] fields = line.split(FIELD_SEP);
 					String idStr = fields[0];
 					int id = Integer.parseInt(idStr);
@@ -57,11 +47,11 @@ public class ActorTextFile implements DAO<Actor> {
 					String birthDateStr = fields[4];
 					LocalDate birthDate = LocalDate.parse(birthDateStr);
 					
-				    Actor a = new Actor(id, firstName, lastName, gender, birthDate);
-				    actors.add(a);
-				    line = in.readLine();
+					Actor p = new Actor(id, firstName, lastName, gender, birthDate);
+					actors.add(p);
+					line = in.readLine();
 				}
-			}catch(IOException ioe) {
+			} catch (IOException ioe) {
 				System.out.println(ioe);
 				return null;
 			}
@@ -75,18 +65,18 @@ public class ActorTextFile implements DAO<Actor> {
 	}
 
 	@Override
-	public boolean add(Actor a) {
-		actors.add(a);
+	public boolean add(Actor p) {
+		actors.add(p);
 		return saveAll();
 	}
 
 	@Override
 	public boolean update(Actor a) {
-		// get old product and remove it
+		// get old actor and remove it
 		Actor oldActor = this.get(a.getId());
 		int i = actors.indexOf(oldActor);
 		actors.remove(i);
-		actors.add(i,a);
+		actors.add(i, a);
 		return saveAll();
 	}
 
@@ -97,25 +87,25 @@ public class ActorTextFile implements DAO<Actor> {
 	}
 	
 	private boolean saveAll() {
-		// after every maintenance function (add, update, delete) function
+		// after every maintenance (add, update, delete) function,
 		// rewrite the text file
-		try(PrintWriter out = new PrintWriter(
-							  new BufferedWriter(
-							  new FileWriter(actorsFile)))) {
-					
-			// write all actors in the list to the file	
+		try (PrintWriter out = new PrintWriter(
+				  			   new BufferedWriter(
+				  			   new FileWriter(actorsFile)))) {
+			// write all actors in the list to the file
 			for (Actor a: actors) {
-				out.print(a.getId() + FIELD_SEP);
-				out.print(a.getFirstName() + FIELD_SEP);
-				out.print(a.getLastName() + FIELD_SEP);
-				out.print(a.getGender() + FIELD_SEP);
+				out.print(a.getId()+FIELD_SEP);
+				out.print(a.getFirstName()+FIELD_SEP);
+				out.print(a.getLastName()+FIELD_SEP);
+				out.print(a.getGender()+FIELD_SEP);
 				out.println(a.getBirthDate());
 			}
 			return true;
-   
-		}catch(IOException ioe) {
+		}
+		catch (IOException ioe) {
 			System.out.println(ioe);
 			return false;
 		}
 	}
+
 }
