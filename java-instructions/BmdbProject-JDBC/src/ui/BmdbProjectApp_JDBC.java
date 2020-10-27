@@ -100,7 +100,7 @@ public class BmdbProjectApp_JDBC {
 				}
 				
 				System.out.println();
-				
+				break;
 				
 			case 5:
 				// add Movie

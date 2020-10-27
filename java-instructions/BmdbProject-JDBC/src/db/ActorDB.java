@@ -11,7 +11,7 @@ public class ActorDB implements DAO<Actor> {
 	
 	// connect to database
 	private Connection getConnection() throws SQLException {
-		String dbURL = "jdbc:mysql://localhost:3306/bmdb";
+		String dbURL = "jdbc:mysql://localhost:3306/bmdb?sslMode=DISABLED";
 		String username = "bmdb_user";
 		String password = "sesame";
 		
@@ -42,6 +42,20 @@ public class ActorDB implements DAO<Actor> {
 		return a;
 	}
 
+	
+	
+	@Override 
+	public List<Actor> findByLastName(String lName){
+		
+		List<Actor> actors = new ArrayList<>
+		
+	}
+	
+	
+	
+	
+	
+	
 	@Override
 	public List<Actor> getAll() {
 		
@@ -80,7 +94,7 @@ public class ActorDB implements DAO<Actor> {
 	@Override
 	public boolean add(Actor a) {
 		boolean success = false;
-		String sql = "insert into actor (FirstName, LastName, Gender, Birthday)\r\n"
+		String sql = "insert into actor (FirstName, LastName, Gender, BirthDate)\r\n"
 				+ "		values (?, ?, ?, ?)";
 		
 		try (Connection conn = getConnection();
