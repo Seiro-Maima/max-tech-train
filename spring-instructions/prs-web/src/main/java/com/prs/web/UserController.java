@@ -19,14 +19,10 @@ public class UserController {
 	@Autowired
 	private UserRepo userRepo;
 	
-	// login - verify user id and password
+	// --- login with user id and password
 	@GetMapping("/{username}/{password}")
 	public User getUserLogin(@PathVariable String username, @PathVariable String password) {
-		// SQL Statement:
-		// SELECT * FROM USER
-		// WHERE UserName = username AND Password = password
 		User u = userRepo.findByUserNameAndPassword(username, password);
-
 		// check if combo of user name and password exists
 		if(u != null) {
 			return u;
@@ -35,13 +31,13 @@ public class UserController {
 		}
 	}
 	
-	// list all users
+	// --- list all users
 	@GetMapping("")
 	public List<User> getAllUsers(){
 		return userRepo.findAll();
 	}
 
-	// list user by id
+	// --- list user by id
 	@GetMapping("/{id}")
 	public Optional<User> getUser(@PathVariable int id){
 		Optional<User> u = userRepo.findById(id);
@@ -52,13 +48,13 @@ public class UserController {
 		}
 	}
 	
-	// add a user
+	// --- add a user
 	@PostMapping("")
 	public User addUser(@RequestBody User u) {
 		return userRepo.save(u);
 	}
 	
-	// update a user
+	// --- update a user
 	@PutMapping("/{id}")
 	public User updateUser(@RequestBody User u, @PathVariable int id) {
 		if(id == u.getId()) {
@@ -68,7 +64,7 @@ public class UserController {
 		}
 	}
 	
-	// delete a user
+	// --- delete a user
 	@DeleteMapping("/{id}")
 	public Optional<User> deleteUser(@PathVariable int id) {
 		Optional<User> u = userRepo.findById(id);

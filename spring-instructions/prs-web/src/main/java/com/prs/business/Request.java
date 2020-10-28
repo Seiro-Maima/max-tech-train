@@ -11,13 +11,13 @@ public class Request {
 	private int id;					// primary key
 	@ManyToOne
 	@JoinColumn(name="UserID")
-	//private int userId;				// foreign key
+	//private int userId;			// foreign key
 	private User user;
 	private String description;
 	private String justification;
 	private LocalDate dateNeeded;
 	private String deliveryMode;
-	private String status;			// default "new"	
+	private String status;	
 	private double total;
 	private LocalDateTime submittedDate;
 	private String reasonForRejection;

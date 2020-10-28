@@ -19,13 +19,13 @@ public class ProductController {
 	@Autowired
 	private ProductRepo productRepo;
 	
-	// list all products
+	// --- list all products
 	@GetMapping("")
 	public List<Product> getAllProducts(){
 		return productRepo.findAll();
 	}
 
-	// list product by id
+	// --- list product by id
 	@GetMapping("/{id}")
 	public Optional<Product> getProduct(@PathVariable int id){
 		Optional<Product> p = productRepo.findById(id);
@@ -36,13 +36,13 @@ public class ProductController {
 		}
 	}
 	
-	// add a product
+	// --- add a product
 	@PostMapping("")
 	public Product addProduct(@RequestBody Product p) {
 		return productRepo.save(p);
 	}
 	
-	// update a product
+	// --- update a product
 	@PutMapping("/{id}")
 	public Product updateProduct(@RequestBody Product p, @PathVariable int id) {
 		if(id == p.getId()) {
@@ -52,7 +52,7 @@ public class ProductController {
 		}
 	}
 	
-	// delete a product
+	// --- delete a product
 	@DeleteMapping("/{id}")
 	public Optional<Product> deleteProduct(@PathVariable int id) {
 		Optional<Product> p = productRepo.findById(id);
@@ -63,5 +63,4 @@ public class ProductController {
 		}
 		return p;
 	}
-
 }

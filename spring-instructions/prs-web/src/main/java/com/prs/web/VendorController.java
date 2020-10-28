@@ -19,13 +19,13 @@ public class VendorController {
 	@Autowired
 	private VendorRepo vendorRepo;
 	
-	// list all vendors
+	// --- list all vendors
 	@GetMapping("")
 	public List<Vendor> getAllVendors(){
 		return vendorRepo.findAll();
 	}
 
-	// list vendor by id
+	// --- list vendor by id
 	@GetMapping("/{id}")
 	public Optional<Vendor> getVendor(@PathVariable int id){
 		Optional<Vendor> v = vendorRepo.findById(id);
@@ -36,13 +36,13 @@ public class VendorController {
 		}
 	}
 	
-	// add a vendor
+	// --- add a vendor
 	@PostMapping("")
 	public Vendor addVendor(@RequestBody Vendor v) {
 		return vendorRepo.save(v);
 	}
 	
-	// update a vendor
+	// --- update a vendor
 	@PutMapping("/{id}")
 	public Vendor updateVendor(@RequestBody Vendor v, @PathVariable int id) {
 		if(id == v.getId()) {
@@ -52,7 +52,7 @@ public class VendorController {
 		}
 	}
 	
-	// delete a vendor
+	// --- delete a vendor
 	@DeleteMapping("/{id}")
 	public Optional<Vendor> deleteVendor(@PathVariable int id) {
 		Optional<Vendor> v = vendorRepo.findById(id);
@@ -63,5 +63,4 @@ public class VendorController {
 		}
 		return v;
 	}
-
 }

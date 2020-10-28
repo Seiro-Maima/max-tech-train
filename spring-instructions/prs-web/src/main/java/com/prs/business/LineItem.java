@@ -7,10 +7,10 @@ public class LineItem {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;				// primary key
+	private int id;					// primary key
 	@ManyToOne
 	@JoinColumn(name="RequestID")
-	//private int requestId;		// foreign key	-> (unique requestId and productId)
+	//private int requestId;		// foreign key (unique requestId and productId)
 	private Request request;
 	@ManyToOne
 	@JoinColumn(name="ProductID")

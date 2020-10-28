@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.prs.business.LineItem;
 
 public interface LineItemRepo extends JpaRepository<LineItem, Integer> {
-	// list of line items under request id
+	// list of line items under specific request id
 	List<LineItem> findByRequestId(int id);
 }

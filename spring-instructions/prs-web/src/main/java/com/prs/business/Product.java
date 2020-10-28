@@ -7,12 +7,12 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;				// primary key
+	private int id;					// primary key
 	@ManyToOne
 	@JoinColumn(name="VendorID")
 	// private int vendorId; 		// foreign key
 	private Vendor vendor;
-	private String partNumber; 	// constraint of venderID and PartNumber -> Will this be implemented in SQL so no need to verify here?
+	private String partNumber; 		// constraint of venderID and PartNumber combo
 	private String name;
 	private double price;
 	private String unit;
