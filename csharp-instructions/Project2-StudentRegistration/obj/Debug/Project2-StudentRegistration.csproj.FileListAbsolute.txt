@@ -1,0 +1,5 @@
+C:\repos\max-tech-train\c#-instructions\Project2-StudentRegistration\bin\Debug\Project2-StudentRegistration.exe.config
+C:\repos\max-tech-train\c#-instructions\Project2-StudentRegistration\bin\Debug\Project2-StudentRegistration.exe
+C:\repos\max-tech-train\c#-instructions\Project2-StudentRegistration\bin\Debug\Project2-StudentRegistration.pdb
+C:\repos\max-tech-train\c#-instructions\Project2-StudentRegistration\obj\Debug\Project2-StudentRegistration.exe
+C:\repos\max-tech-train\c#-instructions\Project2-StudentRegistration\obj\Debug\Project2-StudentRegistration.pdb

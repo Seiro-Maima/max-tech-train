@@ -1,0 +1,6 @@
+C:\repos\max-tech-train\c#-instructions\HelloWorld\bin\Debug\HelloWorld.exe.config
+C:\repos\max-tech-train\c#-instructions\HelloWorld\bin\Debug\HelloWorld.exe
+C:\repos\max-tech-train\c#-instructions\HelloWorld\bin\Debug\HelloWorld.pdb
+C:\repos\max-tech-train\c#-instructions\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
+C:\repos\max-tech-train\c#-instructions\HelloWorld\obj\Debug\HelloWorld.exe
+C:\repos\max-tech-train\c#-instructions\HelloWorld\obj\Debug\HelloWorld.pdb

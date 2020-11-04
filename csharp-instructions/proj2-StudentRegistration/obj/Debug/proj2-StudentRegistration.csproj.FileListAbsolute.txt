@@ -1,0 +1,1 @@
+C:\repos\max-tech-train\c#-instructions\proj2-StudentRegistration\bin\Debug\proj2-StudentRegistration.exe.config

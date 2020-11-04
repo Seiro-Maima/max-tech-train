@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Samples</title>
+    
+    <!-- Javascript code used for button click below -->
+    <script lang="javascript">
+        function button_click(){
+            // alert will provide pop-up 
+            //alert("Yes. You clicked me!");
+            // will print on console
+            console.log("Console log. You clicked me!");
+        }
+        function Fred2Wilma(){
+            // read value from "freddy" and store in "fred" 
+            let fred = document.getElementById("freddy").value;
+            // set vallue from "fred" into "wilma"
+            document.getElementById("wilma").value = fred;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>My Sample HTML page</h2>
+
+
+    <!-- select/option tag -->
+    <span>Pick a state: </span>
+    <select>
+        <!-- value is what we will use, option is what user see -->
+        <option value="OH">Ohio</option>
+        <option value="KY">Kentucky</option>
+        <!-- "selected" option will be default -->
+        <option value="IN" selected>Indiana</option>
+    </select>
+    <p>----</p>
+
+    <!-- input tag -->
+    <span>Enter your name: </span>
+    <input id="freddy" type="text" value="Fred">
+    <button onclick="Fred2Wilma()">Fred to Wilma</button>
+    <input id="wilma" type="text" value="Wilma">
+    <p>----</p>
+
+    <!-- button tag -->
+    <button onclick="button_click()">Click Me!</button>
+    <p>----</p>
+
+    <!-- achor tag -->
+    <a href="http://www.google.com">Take me to Google on this page!</a>
+    <p>----</p>
+
+    <!-- achor tag that will open link on new tab -->
+    <a target="_blank" href="http://www.google.com">Take me to Google on a new tabs!</a>
+    <p>----</p>
+
+</body>
+
+</html>
