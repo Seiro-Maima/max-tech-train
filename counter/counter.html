@@ -1,0 +1,39 @@
+<!-- The counter page requires a page with two buttons and an input control. 
+    One button shows "MINUS" and the other shows "PLUS". The input control 
+    displays a number that starts at zero. If the "PLUS" button is clicked, 
+    the number in the input control is increased by 1. If the "MINUS" button 
+    is clicked, the number decreases by 1. The number can go negative.
+​
+    After this is done, you can choose to enhance this application with this 
+    functionality. The number in the input control should be styled using these rules:
+​    * If the number is evenly divisibly by 2, display the number in red otherwise display in black.​
+    * If the number is evenly divisibly by 3, display the number in bold otherwise display normally.
+    * If the number is evenly divisibly by 5, display the number in italic otherwise display normally.
+​
+    Here is how you can use jQuery to style. Get programmatic access to the input control and call 
+    the jQuery `css()` method. The CSS method takes 2 parameters. The first parameter is the style 
+    to change (i.e. fontFamily) and the second parameter is the value to change it to (i.e. "Arial") 
+    so here is an example:
+​
+    `ctrl.css("fontFamily", "Arial")`
+    
+    Best of luck for trying to do this. -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Counter</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+            crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="scripts/counter.js"></script>
+    </head>
+    <body>
+        <div>
+            <button id="minus">Minus</button>
+            <input id="nbr" type="number">
+            <button id="plus">Plus</button>
+        </div>
+    </body>
+    </html>

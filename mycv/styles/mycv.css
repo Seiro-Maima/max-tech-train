@@ -1,0 +1,24 @@
+/* apply color to specific tag name */
+body {
+    font-family: verdana, arial, sans-serif;
+    font-size: 14px;
+}
+h3 {
+    color: black;
+    font-weight: bold;
+    background-color: lightblue;
+    font-size: 16px;
+}
+p{
+    color: gray;
+}
+#contact{
+    border: 3px dotted lightgray;
+    font-weight: bold;
+}
+.blue{
+    color:blue;
+}
+.bold{
+    font-weight: bold;
+}

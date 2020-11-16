@@ -3,24 +3,15 @@
 
 <head>
     <title>My CV Page</title>
-    <style>
-        /* apply color to specific tag name */
-        body {
-            color:blue;
-            font-family: arial;
-        }
-        h3 {
-            color:red;
-        }
-        p{
-            color:green;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+    crossorigin="anonymous">
+    <link href="styles/mycv.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
     <h3>Contact Info</h3>
-    <div>
+    <div id="contact">
         <span>Marshmellow Holland</span> |
         <span>1234 Dreamland Dr.</span> |
         <span>Sleepville, OR. 99999</span> |
@@ -29,7 +20,7 @@
     </div>
     
     <h3>Technology List</h3>
-    <table>
+    <table class="table table-sm">
         <tr>
             <td>Java</td>
             <td>Git</td>
@@ -61,7 +52,7 @@
 
     ​<h3>Education</h3>
     <p>
-        <span>Hopeless University</span>
+        <span class="blue bold">Hopeless University</span>
         <span>Basket Weaving</span>
         <span>2015</span> 
     </p>    

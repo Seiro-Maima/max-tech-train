@@ -1,0 +1,16 @@
+<div>
+  <h3>Contact Info</h3>
+  <address>
+    <span id="name">{{name}}</span>
+    <span id="address">{{address}}</span>
+    <span id="cityStateZip">{{cityStateZip}}</span>
+    <span id="phone">{{phone}}</span>
+    <span id="email">{{email}}</span>
+  </address>
+</div>
+
+ <!-- find work experience component that has this PK and render it here -->
+<app-work-experience></app-work-experience>
+
+ <!-- find education component that has this PK and render it here -->
+ <app-education *ngIf="displayEducation == true"></app-education>

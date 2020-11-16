@@ -1,0 +1,10 @@
+body{
+    font-family: 'Courier New';
+    color: green;
+}
+div{
+    border: 2px solid green;
+    min-height: 100px;
+    display: inline-block;
+    width: 49%;
+}
